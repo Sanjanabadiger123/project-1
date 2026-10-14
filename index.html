@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KSRTC Bus Finder</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet Map -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🚌 <span>KSRTC</span> Bus Finder
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="results.html">Bus Search</a>
+            <a href="#about">About</a>
+            <a href="#help">Help</a>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🚌 Smart Bus Search
+            </div>
+
+            <h1>
+                Find Your
+                <span>KSRTC Bus</span>
+            </h1>
+
+            <p>
+                Search bus timings, routes, stops and travel information
+                quickly and easily.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH CARD -->
+        <div class="search-card">
+
+            <h2>Where do you want to go?</h2>
+
+            <div class="search-grid">
+
+                <div class="input-box">
+                    <label>📍 From</label>
+
+                    <input
+                        type="text"
+                        id="source"
+                        placeholder="Example: Belagavi"
+                    >
+                </div>
+
+
+                <button class="swap-btn" onclick="swapLocations()">
+                    ⇄
+                </button>
+
+
+                <div class="input-box">
+                    <label>📍 To</label>
+
+                    <input
+                        type="text"
+                        id="destination"
+                        placeholder="Example: Bengaluru"
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="search-options">
+
+                <div>
+                    <label>Date</label>
+
+                    <input
+                        type="date"
+                        id="travelDate"
+                    >
+                </div>
+
+
+                <div>
+                    <label>Bus Type</label>
+
+                    <select id="busType">
+
+                        <option value="all">
+                            All Bus Types
+                        </option>
+
+                        <option value="ordinary">
+                            Ordinary
+                        </option>
+
+                        <option value="express">
+                            Express
+                        </option>
+
+                        <option value="ac">
+                            AC
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="search-btn"
+                onclick="searchBuses()"
+            >
+                🔎 Search Buses
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features">
+
+        <h2>Everything you need for your journey</h2>
+
+        <p class="section-subtitle">
+            Plan your KSRTC journey easily from one place.
+        </p>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🕐</div>
+
+                <h3>Bus Timings</h3>
+
+                <p>
+                    Quickly find available bus departure and arrival times.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">📍</div>
+
+                <h3>Complete Routes</h3>
+
+                <p>
+                    See intermediate stops and the complete journey route.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🗺️</div>
+
+                <h3>Interactive Map</h3>
+
+                <p>
+                    View your bus route on an interactive map.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">💰</div>
+
+                <h3>Fare Information</h3>
+
+                <p>
+                    Check the estimated fare before starting your journey.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- POPULAR ROUTES -->
+    <section class="popular">
+
+        <h2>Popular Routes</h2>
+
+        <div class="route-grid">
+
+            <div
+                class="route-card"
+                onclick="quickSearch('Belagavi','Bengaluru')"
+            >
+
+                <div>
+                    <span>Belagavi</span>
+                    <strong>→</strong>
+                    <span>Bengaluru</span>
+                </div>
+
+                <p>Multiple buses available</p>
+
+            </div>
+
+
+            <div
+                class="route-card"
+                onclick="quickSearch('Bengaluru','Mysuru')"
+            >
+
+                <div>
+                    <span>Bengaluru</span>
+                    <strong>→</strong>
+                    <span>Mysuru</span>
+                </div>
+
+                <p>Frequent KSRTC services</p>
+
+            </div>
+
+
+            <div
+                class="route-card"
+                onclick="quickSearch('Hubballi','Bengaluru')"
+            >
+
+                <div>
+                    <span>Hubballi</span>
+                    <strong>→</strong>
+                    <span>Bengaluru</span>
+                </div>
+
+                <p>Daily services</p>
+
+            </div>
+
+
+            <div
+                class="route-card"
+                onclick="quickSearch('Mangaluru','Bengaluru')"
+            >
+
+                <div>
+                    <span>Mangaluru</span>
+                    <strong>→</strong>
+                    <span>Bengaluru</span>
+                </div>
+
+                <p>Day and night buses</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="info-section">
+
+        <div>
+
+            <span class="small-title">
+                ABOUT THE PROJECT
+            </span>
+
+            <h2>
+                Your simple KSRTC journey planner
+            </h2>
+
+            <p>
+                KSRTC Bus Finder is designed to make bus journey planning
+                easier. Search for buses, check timings, explore routes
+                and understand your journey before travelling.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- HELP -->
+    <section id="help" class="help-section">
+
+        <h2>How to use?</h2>
+
+        <div class="steps">
+
+            <div>
+                <strong>01</strong>
+                <p>Enter your starting location.</p>
+            </div>
+
+            <div>
+                <strong>02</strong>
+                <p>Enter your destination.</p>
+            </div>
+
+            <div>
+                <strong>03</strong>
+                <p>Choose date and bus type.</p>
+            </div>
+
+            <div>
+                <strong>04</strong>
+                <p>Select a bus and view its route.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="logo">
+            🚌 KSRTC Bus Finder
+        </div>
+
+        <p>
+            A student project for easier bus journey planning.
+        </p>
+
+        <p>
+            © 2026 KSRTC Bus Finder
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

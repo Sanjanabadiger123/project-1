@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Bus Details - KSRTC Bus Finder</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="background">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🚌 <span>KSRTC</span> Bus Finder
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="results.html">
+                Bus Search
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="details-page">
+
+
+        <a
+            href="results.html"
+            class="back-link"
+        >
+            ← Back to results
+        </a>
+
+
+        <!-- BUS HEADER -->
+
+        <section
+            id="busDetails"
+            class="details-card"
+        >
+
+        </section>
+
+
+        <!-- ROUTE -->
+
+        <section class="route-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="small-title">
+                        JOURNEY ROUTE
+                    </span>
+
+                    <h2>
+                        Complete Route
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="routeStops"
+                class="timeline"
+            >
+
+            </div>
+
+        </section>
+
+
+        <!-- MAP -->
+
+        <section class="map-section">
+
+            <div>
+
+                <span class="small-title">
+                    LIVE MAP VIEW
+                </span>
+
+                <h2>
+                    Route on Map
+                </h2>
+
+            </div>
+
+
+            <div id="map"></div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        <div class="logo">
+            🚌 KSRTC Bus Finder
+        </div>
+
+        <p>
+            Safe journey! ❤️
+        </p>
+
+    </footer>
+
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

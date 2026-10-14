@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Bus Results - KSRTC Bus Finder</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🚌 <span>KSRTC</span> Bus Finder
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="results.html">
+                Bus Search
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="results-page">
+
+
+        <!-- SEARCH SUMMARY -->
+
+        <div class="results-header">
+
+            <div>
+
+                <p class="small-title">
+                    BUS SEARCH
+                </p>
+
+                <h1 id="routeTitle">
+                    Available Buses
+                </h1>
+
+                <p id="searchInfo">
+                    Searching available KSRTC buses
+                </p>
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="secondary-btn"
+            >
+                ← Modify Search
+            </a>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filter-bar">
+
+            <select id="filterType" onchange="displayResults()">
+
+                <option value="all">
+                    All Bus Types
+                </option>
+
+                <option value="ordinary">
+                    Ordinary
+                </option>
+
+                <option value="express">
+                    Express
+                </option>
+
+                <option value="ac">
+                    AC
+                </option>
+
+            </select>
+
+
+            <select id="sortBus" onchange="displayResults()">
+
+                <option value="departure">
+                    Sort: Departure
+                </option>
+
+                <option value="duration">
+                    Sort: Duration
+                </option>
+
+                <option value="fare">
+                    Sort: Fare
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- RESULTS -->
+
+        <div id="busResults" class="bus-results">
+
+        </div>
+
+
+    </main>
+
+
+    <footer>
+
+        <div class="logo">
+            🚌 KSRTC Bus Finder
+        </div>
+
+        <p>
+            Plan your journey smarter.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
